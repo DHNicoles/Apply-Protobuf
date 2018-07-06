@@ -1,0 +1,41 @@
+syntax = "proto2";
+package config;
+
+enum AlgorithmMode
+{
+	DEFAULT = 0;
+	SNAPSHOT = 1;
+	HANDS_LOCATION = 2;
+}
+message Settings 
+{
+	optional float global_head_detect_thresh = 1 [default = 0.3];
+	optional float global_upperbody_detect_thresh = 2 [default = 0.3];
+	required Reef reef = 3;
+	optional bool enable_come_in = 4 [default = false];
+	required string mask_path = 5;
+	optional AlgorithmMode algorithm_mode = 6 [default = DEFAULT]; 
+	optional bool capture_only = 7 [default = false];
+} 
+
+message Hikcam
+{
+	required int32 store_id = 1;
+	required int32 camera_id = 2;
+	required string ip_address = 4; 
+	required string name = 5; 
+	required string password = 6; 
+	required Settings settings = 7;	
+	optional string desc = 8 [default = "Brief description of this HikCamera"];
+}
+message Reef
+{
+	required int32 x = 1[default = -1];
+	required int32 y = 2[default = -1];
+}
+message Config
+{
+	repeated Hikcam camera = 1;
+}
+
+

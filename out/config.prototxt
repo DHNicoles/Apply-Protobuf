@@ -1,0 +1,41 @@
+camera
+{
+	store_id: 100
+	camera_id:0
+	ip_address: "192.168.1.64"
+	name: "admin"
+	password: "admin12345"
+	desc: "camera-01"
+	settings
+	{
+		global_head_detect_thresh: 0.4
+		mask_path : ""
+		algorithm_mode : SNAPSHOT 
+		reef
+		{
+			x : 450
+			y : 200
+		}
+	}
+}
+
+camera
+{
+	store_id: 100
+	camera_id:1
+	ip_address: "192.168.1.65"
+	name: "admin"
+	password: "admin12345"
+	desc: "camera-02"
+	settings
+	{
+		global_head_detect_thresh: 0.4
+		mask_path : ""
+		reef
+		{
+			x : 300
+			y : 100
+		}
+	}
+}
+
